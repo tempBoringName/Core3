@@ -2679,10 +2679,11 @@ INSERT INTO `swgemu`.`skills` VALUES  (444,'crafting_tailor_formal_02','crafting
  (516,'combat_smuggler_slicing_02','combat_smuggler_slicing_01','fourByFour',0,0,0,0,7000,4,0,'combat_smuggler_slicing_01',' ','slicing',10000,50000,' ',0,' ',' ','none',' ','slice_weaponsbasic',' ','craftSmugglerToolsB',' ',1,0),
  (517,'combat_smuggler_slicing_03','combat_smuggler_slicing_02','fourByFour',0,0,0,0,8000,3,0,'combat_smuggler_slicing_02',' ','slicing',25000,100000,' ',0,' ',' ','none',' ','slice_armor',' ',' ',' ',1,0),
  (518,'combat_smuggler_slicing_04','combat_smuggler_slicing_03','fourByFour',0,1,0,0,9000,2,0,'combat_smuggler_slicing_03',' ','slicing',50000,100000,' ',0,' ',' ','none',' ','slice_weaponsadvanced',' ','craftSmugglerToolsC',' ',1,0),
- (519,'combat_smuggler_combat_01','combat_smuggler','fourByFour',0,0,0,0,6000,5,0,'combat_smuggler_novice',' ','combat_rangedspecialize_pistol',175000,500000,' ',0,' ',' ','none',' ','feignDeath,ranged_damage_mitigation_1','feign_death=45',' ',' ',1,0),
- (520,'combat_smuggler_combat_02','combat_smuggler_combat_01','fourByFour',0,0,0,0,7000,4,0,'combat_smuggler_combat_01',' ','combat_rangedspecialize_pistol',250000,700000,' ',0,' ',' ','none',' ','panicShot','feign_death=5',' ',' ',1,0),
- (521,'combat_smuggler_combat_03','combat_smuggler_combat_02','fourByFour',0,0,0,0,8000,3,0,'combat_smuggler_combat_02',' ','combat_rangedspecialize_pistol',350000,900000,' ',0,' ',' ','none',' ','lowBlow,melee_damage_mitigation_1','feign_death=10',' ',' ',1,0),
- (522,'combat_smuggler_combat_04','combat_smuggler_combat_03','fourByFour',0,1,0,0,9000,2,0,'combat_smuggler_combat_03',' ','combat_rangedspecialize_pistol',450000,900000,' ',0,' ',' ','none',' ','lastDitch','feign_death=10',' ',' ',1,0),
+ --Testing 6-13-23 - Added some stat boosts to the smugglers combat line
+ (519,'combat_smuggler_combat_01','combat_smuggler','fourByFour',0,0,0,0,6000,5,0,'combat_smuggler_novice',' ','combat_rangedspecialize_pistol',175000,500000,' ',0,' ',' ','none',' ','feignDeath,ranged_damage_mitigation_1','feign_death=45,dodge=10',' ',' ',1,0),
+ (520,'combat_smuggler_combat_02','combat_smuggler_combat_01','fourByFour',0,0,0,0,7000,4,0,'combat_smuggler_combat_01',' ','combat_rangedspecialize_pistol',250000,700000,' ',0,' ',' ','none',' ','panicShot','feign_death=5,dodge=10',' ',' ',1,0),
+ (521,'combat_smuggler_combat_03','combat_smuggler_combat_02','fourByFour',0,0,0,0,8000,3,0,'combat_smuggler_combat_02',' ','combat_rangedspecialize_pistol',350000,900000,' ',0,' ',' ','none',' ','lowBlow,melee_damage_mitigation_1','feign_death=10,dodge=10',' ',' ',1,0),
+ (522,'combat_smuggler_combat_04','combat_smuggler_combat_03','fourByFour',0,1,0,0,9000,2,0,'combat_smuggler_combat_03',' ','combat_rangedspecialize_pistol',450000,900000,' ',0,' ',' ','none',' ','lastDitch','feign_death=10,dodge=10',' ',' ',1,0),
  (523,'combat_smuggler_spice_01','combat_smuggler','fourByFour',0,0,0,0,6000,5,0,'combat_smuggler_novice',' ','crafting_spice',8000,24000,' ',0,' ',' ','none',' ',' ','spice_assembly=20,spice_experimentation=20','craftSmugglerSpiceA',' ',1,0),
  (524,'combat_smuggler_spice_02','combat_smuggler_spice_01','fourByFour',0,0,0,0,7000,4,0,'combat_smuggler_spice_01',' ','crafting_spice',12000,32000,' ',0,' ',' ','none',' ',' ','spice_assembly=20,spice_experimentation=20','craftSmugglerSpiceB',' ',1,0),
  (525,'combat_smuggler_spice_03','combat_smuggler_spice_02','fourByFour',0,0,0,0,8000,3,0,'combat_smuggler_spice_02',' ','crafting_spice',16000,40000,' ',0,' ',' ','none',' ',' ','spice_assembly=20,spice_experimentation=20','craftSmugglerSpiceC',' ',1,0),
@@ -3228,7 +3229,33 @@ INSERT INTO `swgemu`.`skills` VALUES  (887,'force_discipline_powers_mental_02','
  (1065,'pilot_neutral_droid_02','pilot_neutral_droid_01','fourByFour',0,0,0,0,2000,0,0,'pilot_neutral_starships_01,pilot_neutral_weapons_01,pilot_neutral_procedures_01,pilot_neutral_droid_01',' ','space_combat_general',60000,200000,' ',0,' ',' ','none',' ','private_neutral_droid_2,droidcommand_reactoroverloadtwo,cert_droid_astromech_3,droidcommand_weapcappoweruptwo,droidcommand_weapcaptoshieldtwo',' ',' ',' ',1,0),
  (1066,'pilot_neutral_droid_03','pilot_neutral_droid_02','fourByFour',0,0,0,0,3000,0,0,'pilot_neutral_starships_02,pilot_neutral_weapons_02,pilot_neutral_procedures_02,pilot_neutral_droid_02',' ','space_combat_general',200000,1000000,' ',0,' ',' ','none',' ','private_neutral_droid_3,droidcommand_reactoroverloadthree,cert_droid_astromech_4,droidcommand_weapcappowerupthree,droidcommand_weapcaptoshieldthree',' ',' ',' ',1,0),
  (1067,'pilot_neutral_droid_04','pilot_neutral_droid_03','fourByFour',0,1,0,0,4000,0,0,'pilot_neutral_starships_03,pilot_neutral_weapons_03,pilot_neutral_procedures_03,pilot_neutral_droid_03',' ','space_combat_general',1000000,7500000,' ',0,' ',' ','none',' ','private_neutral_droid_4,droidcommand_reactoroverloadfour,cert_droid_astromech_5,droidcommand_weapcappowerupfour,droidcommand_weapcaptoshieldfour',' ',' ',' ',1,0),
- (1068,'pilot_spacetest','pilot','fourByFour',1,1,0,0,0,0,0,' ',' ',' ',0,0,' ',0,' ',' ','none',' ','droid+droidcommand_testweaponoverload1,droidcommand_testweaponoverload2,droidcommand_testweaponoverload3,droidcommand_testweaponoverload4,droidcommand_testweaponnormalize,droidcommand_testfronttobackfifty,droidcommand_testbacktofrontfifty',' ',' ',' ',1,0);
+ (1068,'pilot_spacetest','pilot','fourByFour',1,1,0,0,0,0,0,' ',' ',' ',0,0,' ',0,' ',' ','none',' ','droid+droidcommand_testweaponoverload1,droidcommand_testweaponoverload2,droidcommand_testweaponoverload3,droidcommand_testweaponoverload4,droidcommand_testweaponnormalize,droidcommand_testfronttobackfifty,droidcommand_testbacktofrontfifty',' ',' ',' ',1,0),
+ 
+ ---
+ -- Testing 6/13/23 Added new class "Gungan" 
+ ---
+ 
+ (1069,'combat_gungan','combat','fourByFour',0,0,1,0,0,0,0,' ',' ',' ',0,0,' ',0,' ',' ','none',' ',' ',' ',' ',' ',1,0),
+ (1070,'combat_gungan_novice','combat_gungan','fourByFour',0,1,0,0,100,15,0,' ',' ',' ',0,0,' ',0,' ',' ','none',' ','private_gungan_novice,taunt,warcry1','unarmed_accuracy=10,unarmed_damage=15,unarmed_speed=5,thrown_accuracy=10,thrown_speed=10,private_unarmed_combat_difficulty=50,taunt=10',' ',' ',1,0),
+ (1071,'combat_gungan_thrownweapon_01','combat_gungan','fourByFour',0,0,0,0,1000,2,0,'combat_gungan_novice',' ','combat_general',50,100,' ',0,' ',' ','none',' ',' ','thrown_accuracy=10,thrown_speed=10,private_unarmed_combat_difficulty=100',' ',' ',1,0),
+ (1072,'combat_gungan_thrownweapon_02','combat_gungan_thrownweapon_01','fourByFour',0,0,0,0,2000,3,0,'combat_gungan_thrownweapon_01',' ','combat_general',100,200,' ',0,' ',' ','none',' ',' ','thrown_accuracy=10,thrown_speed=10,private_unarmed_combat_difficulty=100',' ',' ',1,0),
+ (1073,'combat_gungan_thrownweapon_03','combat_gungan_thrownweapon_02','fourByFour',0,0,0,0,3000,4,0,'combat_gungan_thrownweapon_02',' ','combat_general',200,400,' ',0,' ',' ','none',' ',' ','thrown_accuracy=10,thrown_speed=10,private_unarmed_combat_difficulty=100',' ',' ',1,0),
+ (1074,'combat_gungan_thrownweapon_04','combat_gungan_thrownweapon_03','fourByFour',0,1,0,0,4000,5,0,'combat_gungan_thrownweapon_03',' ','combat_general',400,800,' ',0,' ',' ','none',' ',' ','thrown_accuracy=10,thrown_speed=10,private_unarmed_combat_difficulty=100',' ',' ',1,0),
+ (1075,'combat_gungan_unarmed_01','combat_gungan','fourByFour',0,0,0,0,1000,2,0,'combat_gungan_novice',' ','combat_meleespecialize_unarmed',1000,2000,' ',0,' ',' ','none',' ',' ','unarmed_accuracy=10,unarmed_damage=15,unarmed_speed=5,private_unarmed_combat_difficulty=100',' ',' ',1,0),
+ (1076,'combat_gungan_unarmed_02','combat_gungan_unarmed_01','fourByFour',0,0,0,0,2000,3,0,'combat_gungan_thrownweapon_01',' ','combat_meleespecialize_unarmed',2000,4000,' ',0,' ',' ','none',' ',' ','unarmed_accuracy=10,unarmed_damage=15,unarmed_speed=5,private_unarmed_combat_difficulty=100',' ',' ',1,0),
+ (1077,'combat_gungan_unarmed_03','combat_gungan_unarmed_02','fourByFour',0,0,0,0,3000,4,0,'combat_gungan_thrownweapon_02',' ','combat_meleespecialize_unarmed',3000,6000,' ',0,' ',' ','none',' ',' ','unarmed_accuracy=10,unarmed_damage=15,unarmed_speed=5,private_unarmed_combat_difficulty=100',' ',' ',1,0),
+ (1078,'combat_gungan_unarmed_04','combat_gungan_unarmed_03','fourByFour',0,1,0,0,4000,5,0,'combat_gungan_thrownweapon_03',' ','combat_meleespecialize_unarmed',4000,8000,' ',0,' ',' ','none',' ',' ','unarmed_accuracy=10,unarmed_damage=15,unarmed_speed=5,private_unarmed_combat_difficulty=100',' ',' ',1,0),
+ (1079,'combat_gungan_munitions_01','combat_gungan','fourByFour',0,0,0,0,1000,2,0,'combat_gungan_novice',' ','crafting_weapons_general',1000,2000,' ',0,' ',' ','none',' ',' ',' ','craftMunitionsGroupB',' ',1,0),
+ (1080,'combat_gungan_munitions_02','combat_gungan_munitions_01','fourByFour',0,0,0,0,2000,3,0,'combat_gungan_munitions_01',' ','crafting_weapons_general',2000,4000,' ',0,' ',' ','none',' ',' ',' ','craftMunitionsGroupC',' ',1,0),
+ (1081,'combat_gungan_munitions_03','combat_gungan_munitions_02','fourByFour',0,0,0,0,3000,4,0,'combat_gungan_munitions_02',' ','crafting_weapons_general',3000,6000,' ',0,' ',' ','none',' ',' ',' ','craftMunitionsGroupD',' ',1,0),
+ (1082,'combat_gungan_munitions_04','combat_gungan_munitions_03','fourByFour',0,1,0,0,4000,5,0,'combat_gungan_munitions_03',' ','crafting_weapons_general',4000,8000,' ',0,' ',' ','none',' ',' ',' ','craftMunitionsGroupE',' ',1,0),
+ (1083,'combat_gungan_support_01','combat_gungan','fourByFour',0,0,0,0,1000,2,0,'combat_gungan_novice',' ','combat_meleespecialize_unarmed',1000,2000,' ',0,' ',' ','none',' ',' ','melee_defense=15,ranged_defense=5,unarmed_accuracy=30,private_unarmed_combat_difficulty=125,unarmed_passive_defense=15',' ',' ',1,0),
+ (1084,'combat_gungan_support_02','combat_gungan_support_01','fourByFour',0,0,0,0,2000,3,0,'combat_gungan_support_01',' ','combat_meleespecialize_unarmed',2000,4000,' ',0,' ',' ','none',' ',' ','private_unarmed_combat_difficulty=100,melee_defense=15,ranged_defense=10,unarmed_accuracy=20,unarmed_toughness=5,unarmed_passive_defense=11',' ',' ',1,0),
+ (1085,'combat_gungan_support_03','combat_gungan_support_02','fourByFour',0,0,0,0,3000,4,0,'combat_gungan_support_02',' ','combat_meleespecialize_unarmed',3000,6000,' ',0,' ',' ','none',' ',' ','melee_defense=15,ranged_defense=15,unarmed_accuracy=30,private_unarmed_combat_difficulty=100,unarmed_passive_defense=15',' ',' ',1,0),
+ (1086,'combat_gungan_support_04','combat_gungan_support_03','fourByFour',0,1,0,0,4000,5,0,'combat_gungan_support_03',' ','combat_meleespecialize_unarmed',4000,8000,' ',0,' ',' ','none',' ',' ','private_unarmed_combat_difficulty=100,melee_defense=15,ranged_defense=15,unarmed_accuracy=20,unarmed_toughness=5,unarmed_passive_defense=15',' ',' ',1,0),
+ (1067,'combat_gungan_master','combat_gungan','fourByFour',0,1,0,0,5000,6,0,'combat_gungan_thrownweapon_04,combat_gungan_unarmed_04,combat_gungan_munitions_04,combat_gungan_support_04',' ',' ',0,0,' ',0,' ',' ','none',' ',' ','warcry=20,unarmed_accuracy=5,unarmed_speed=5,melee_defense=5,ranged_defense=5,private_unarmed_combat_difficulty=100,taunt=30,unarmed_toughness=5',' ',' ',1,0)
+ 
+ ;
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `skills` ENABLE KEYS */;
 
@@ -3855,7 +3882,13 @@ INSERT INTO `swgemu`.`trainers` VALUES  ('Coronet','an Artisan trainer','trainer
  ('Mos Espa','an Entertainer trainer','trainer_entertainer','social_entertainer','073354DE','61B3DB1E','EA2F0CEB',8,0,-2889,2178,5,0,0,0,0.986429,0.164186,519,24),
  ('Mos Eisley','an Entertainer trainer','trainer_entertainer','social_entertainer','073354DE','61B3DB1E','EA2F0CEB',8,0,3477.89,-4791.6,5,0,0,0,0.952414,-0.304806,520,24),
  ('Rori','a Merchant trainer','trainer_merchant','crafting_merchant','D717AE2E','0C0006B9','450D6134',6,4635772,5397,5613,81,11.6338,5.69637,1.13306,0.999642,0.0267526,521,0),
- ('Bela Vistal','a Merchant trainer','trainer_merchant','crafting_merchant','D717AE2E','0C0006B9','450D6134',0,2365798,6845,-5428,331,12,6,1.13306,1,0,522,0);
+ ('Bela Vistal','a Merchant trainer','trainer_merchant','crafting_merchant','D717AE2E','0C0006B9','450D6134',0,2365798,6845,-5428,331,12,6,1.13306,1,0,522,0),
+ 
+  ---
+ -- Testing 6/13/23 - Added Gungan Trainer in Coronet 
+ ---
+ ('Coronet ','a Gungan trainer','trainer_gungan','combat_gungan','D717AE2E','0C0006B9','450D6134',0,0,-360,-4533,28,0,0,0,0.717733,0.696318,523,0)
+ ;
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `trainers` ENABLE KEYS */;
 

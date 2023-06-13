@@ -148,3 +148,8 @@ createTrainerConversationTemplate("weaponsmithTrainerConvoTemplate", "trainer_we
 
 createTrainerConversationTemplate("fsTrainerConvoTemplate", "trainer_fs")
 createTrainerConversationTemplate("jediTrainerConvoTemplate", "trainer_jedi")
+
+---
+-- Testing 6-13-23 - Added Gungan conversation template
+---
+createTrainerConversationTemplate("gunganTrainerConvoTemplate", "trainer_gungan")

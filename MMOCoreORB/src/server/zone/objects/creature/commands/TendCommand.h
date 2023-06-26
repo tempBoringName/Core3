@@ -268,8 +268,8 @@ public:
 			int healedWounds = creatureTarget->healWound(creature, attribute, healPower);
 
 			sendWoundMessage(creature, creatureTarget, attribute, healedWounds);
-
-			if (creatureTarget != creature && healedWounds > 0) {
+			//6-23-23 Edit: This formerly had a check to see if the creature was healing itself, which I removed
+			if (healedWounds > 0) {
 				awardXp(creature, "medical", round(healedWounds * 2.5f));
 				creature->notifyObservers(ObserverEventType::ABILITYUSED, creatureTarget, STRING_HASHCODE("tendwound"));
 			}

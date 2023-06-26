@@ -206,3 +206,5 @@ int SharedLabratory::calculateAssemblySuccess(CreatureObject* player,DraftSchema
 	return CraftingManager::BARELYSUCCESSFUL;
 }
 
+
+

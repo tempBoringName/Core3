@@ -150,7 +150,7 @@ public:
 		CreatureObject* player = cast<CreatureObject*>(creature);
 
 		int amount = (int) round((float) power * 1.0f);
-
+		//6-23-23 Edit: This formerly had a check to see if the creature was healing itself, which I removed
 		if (amount <= 0)
 			return;
 
@@ -258,8 +258,8 @@ public:
 		creatureTarget->healDot(state, curePack->calculatePower(creature));
 
 		sendCureMessage(creature, creatureTarget);
-
-		if (creatureTarget != creature && !creatureTarget->isPet())
+		//6-23-23 Edit: This formerly had a check to see if the creature was healing itself, which I removed
+		if (!creatureTarget->isPet())
 			awardXp(creature, "medical", 50); //No experience for healing yourself or pets.
 
 		checkForTef(creature, creatureTarget);
@@ -411,8 +411,8 @@ public:
 			Locker locker(curePack);
 			curePack->decreaseUseCount();
 		}
-
-		if (targetCreature != creature && !targetCreature->isPet())
+		//6-23-23 Edit: This formerly had a check to see if the creature was healing itself, which I removed
+		if (!targetCreature->isPet())
 			awardXp(creature, "medical", 50); //No experience for healing yourself or pets.
 
 		if (curePack->isArea()) {

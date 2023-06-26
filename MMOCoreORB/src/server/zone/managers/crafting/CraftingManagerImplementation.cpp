@@ -184,3 +184,12 @@ void CraftingManagerImplementation::setInitialCraftingValues(TangibleObject* pro
 	SharedLabratory* lab = labs.get(labratory);
 	lab->setInitialCraftingValues(prototype,manufactureSchematic,assemblySuccess);
 }
+
+//Ethan edits, trying to make Hondo's stuff work:
+int CraftingManagerImplementation::calculateFinalJunkValue(CreatureObject* player, DraftSchematic* draftSchematic)
+{
+	float finalValue = 100.0f;
+	
+	return int(finalValue);
+}
+

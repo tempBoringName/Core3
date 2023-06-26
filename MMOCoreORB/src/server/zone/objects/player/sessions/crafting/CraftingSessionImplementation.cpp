@@ -857,6 +857,21 @@ void CraftingSessionImplementation::initialAssembly(int clientCounter) {
 	}
 
 	prototype->setComplexity(manufactureSchematic->getComplexity());
+	
+	// Hondo - Add Junk Dealer type to the item
+    prototype->setJunkDealerNeeded(1); // JUNKGENERIC
+    
+	
+
+    // Add a value to the item, based on 1 Credit per unit, OQ, DR, and crafter skill
+        // CraftingManagerImplementation::calculateFinalJunkValue calculates final price and calls...
+            // SharedLabratory::getJunkValue which calculates quality/quantity of resources used
+    int junkPrice = 100;
+    
+
+
+    prototype->setJunkValue(junkPrice);
+	//End Hondo
 
 	// Start DMSCO3 ***********************************************************
 	// Sends the updated values to the crafting screen

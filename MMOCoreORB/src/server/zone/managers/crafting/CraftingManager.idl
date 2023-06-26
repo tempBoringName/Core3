@@ -86,4 +86,9 @@ class CraftingManager extends ZoneManager {
 	
 	public native void setInitialCraftingValues(TangibleObject prototype, ManufactureSchematic manufactureSchematic, int assemblySuccess);
 	public native int getCreationCount(ManufactureSchematic manufactureSchematic);
+
+	//Ethan edit: Attempting to add Hondo calcs
+	public native int calculateFinalJunkValue(CreatureObject player, DraftSchematic draftSchematic);
+	
 }
+	

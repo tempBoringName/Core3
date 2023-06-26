@@ -346,8 +346,8 @@ public:
 
 		Locker locker(woundPack);
 		woundPack->decreaseUseCount();
-
-		if (creatureTarget != creature && !creatureTarget->isPet())
+		//6-23-23 Edit: This formerly had a check to see if the creature was healing itself, which I removed
+		if (!creatureTarget->isPet())
 			awardXp(creature, "medical", woundHealed); //No experience for healing yourself or pets.
 
 		doAnimations(creature, creatureTarget);

@@ -1,5 +1,4 @@
-/*
-				Copyright <SWGEmu>
+/*				Copyright <SWGEmu>
 		See file COPYING for copying conditions.*/
 
 #ifndef HEALSTATECOMMAND_H_
@@ -298,8 +297,8 @@ public:
 			Locker locker(statePack);
 			statePack->decreaseUseCount();
 		}
-
-		if (creatureTarget != creature && !creatureTarget->isPet())
+		//6-23-23 Edit: This formerly had a check to see if the creature was healing itself, which I removed
+		if (!creatureTarget->isPet())
 			awardXp(creature, "medical", 50); //No experience for healing yourself or pets.
 
 		doAnimations(creature, creatureTarget);

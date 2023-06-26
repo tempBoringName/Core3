@@ -238,7 +238,7 @@ public:
 
 			dotDMG = targetCreature->addDotState(creature, CreatureState::DISEASED, dotPack->getServerObjectCRC(), dotPower, dotPack->getPool(), dotPack->getDuration(), dotPack->getPotency(), targetCreature->getSkillMod("resistance_disease") + targetCreature->getSkillMod("poison_disease_resist"));
 		}
-
+		//6-23-23 Edit: This formerly had a check to see if the creature was healing itself, which I removed
 		if (dotDMG) {
 			awardXp(creature, "medical", dotDMG); // No experience for healing yourself.
 

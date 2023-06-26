@@ -29,11 +29,11 @@ void AttachmentImplementation::updateCraftingValues(CraftingValues* values, bool
 
 	if(roll < 5)
 		modCount += 1;
-
+	//6-23-23 Edit: The max was set to 25.f, but that was way too fucking high, nerfed to 5.f
 	for(int i = 0; i < modCount; ++i) {
 		//Mods can't be lower than -1 or greater than 25
-		int max = (int) Math::max(-1.f, Math::min(25.f, (float) round(0.1f * level + 3)));
-		int min = (int) Math::max(-1.f, Math::min(25.f, (float) round(0.075f * level - 1)));
+		int max = (int) Math::max(-1.f, Math::min(5.f, (float) round(0.1f * level + 3)));
+		int min = (int) Math::max(-1.f, Math::min(5.f, (float) round(0.075f * level - 1)));
 
 		int mod = System::random(max - min) + min;
 

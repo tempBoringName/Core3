@@ -249,7 +249,7 @@ public:
 		CreatureObject* player = cast<CreatureObject*>(creature);
 
 		int amount = (int)round((float)power * 0.25f);
-
+		//6-23-23 Edit: This formerly had a check to see if the creature was healing itself, which I removed
 		if (amount <= 0)
 			return;
 
@@ -299,8 +299,8 @@ public:
 			}
 
 			sendHealMessage(creature, targetCreature, healthHealed, actionHealed, mindHealed);
-
-			if (targetCreature != creature && !targetCreature->isPet())
+			//6-23-23 Edit: This formerly had a check to see if the creature was healing itself, which I removed
+			if (!targetCreature->isPet())
 				awardXp(creature, "medical", (healthHealed + actionHealed)); //No experience for healing yourself or pets.
 
 			checkForTef(creature, targetCreature);
@@ -492,8 +492,8 @@ public:
 
 		Locker locker(stimPack);
 		stimPack->decreaseUseCount();
-
-		if (targetCreature != creature && !targetCreature->isPet())
+		//6-23-23 Edit: This formerly had a check to see if the creature was healing itself, which I removed
+		if (!targetCreature->isPet())
 			awardXp(creature, "medical", (healthHealed + actionHealed)); //No experience for healing yourself.
 
 		if (targetCreature != creature)

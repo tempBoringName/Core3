@@ -54,6 +54,8 @@ object_draft_schematic_item_item_generic_tool = object_draft_schematic_item_shar
    
    xpType = "crafting_general", 
    xp = 40, 
+   
+--6-24-23 Edit: seeing if I can add a junk value here:
 
    assemblySkill = "general_assembly", 
    experimentingSkill = "general_experimentation", 

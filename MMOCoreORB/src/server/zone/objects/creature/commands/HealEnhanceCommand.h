@@ -425,8 +425,8 @@ public:
 			Locker locker(enhancePack);
 			enhancePack->decreaseUseCount();
 		}
-
-		if (patient != enhancer)
+		//6-23-23 Edit: This formerly had a check to see if the creature was healing itself, which I removed
+		if (true)
 			awardXp(enhancer, "medical", amountEnhanced); //No experience for healing yourself.
 
 		doAnimations(enhancer, patient);

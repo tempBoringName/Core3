@@ -56,7 +56,7 @@ Core3 = {
 	DBPort = 3306,
 	DBName = "swgemu",
 	DBUser = "swgemu",
-	DBPass = "123456",
+	DBPass = "steakmonth",
 	DBInstances = 2,
 	DBSecret = "swgemus3cr37!", -- Change this! This value should be unique and of reasonable length.
 
@@ -69,7 +69,7 @@ Core3 = {
 	MantisPort = 3306,
 	MantisName = "swgemu",
 	MantisUser = "swgemu",
-	MantisPass = "123456",
+	MantisPass = "steakmonth",
 	MantisPrfx = "mantis_", -- The prefix for your mantis tables.
 
 	MetricsHost = "localhost",
@@ -96,7 +96,7 @@ Core3 = {
 	--"11",
 	--"character_farm",
 	--"cinco_city_test_m5",
-	--"corellia",
+	"corellia",
 	--"creature_test",
 	--"dantooine",
 	--"dathomir",
@@ -113,34 +113,34 @@ Core3 = {
 	--"runtimerules",
 	--"simple",
 	--"space_09",
-	--"space_corellia",
-	--"space_corellia_2",
-	--"space_dantooine",
-	--"space_dathomir",
-	--"space_endor",
-	--"space_env",
-	--"space_halos",
-	--"space_heavy1",
-	--"space_light1",
-	--"space_lok",
-	--"space_naboo",
-	--"space_naboo_2",
-	--"space_tatooine",
-	--"space_tatooine_2",
-	--"space_yavin4",
-	--"taanab",
-	--"talus",
+	"space_corellia",
+	"space_corellia_2",
+	"space_dantooine",
+	"space_dathomir",
+	"space_endor",
+	"space_env",
+	"space_halos",
+	"space_heavy1",
+	"space_light1",
+	"space_lok",
+	"space_naboo",
+	"space_naboo_2",
+	"space_tatooine",
+	"space_tatooine_2",
+	"space_yavin4",
+	"taanab",
+	"talus",
 	"tatooine",
 	--"test_wearables",
 	"tutorial",
 	--"umbra",
 	--"watertabletest",
-	--"yavin4"
+	"yavin4"
 	},
 
 
 	-- Where tre files are stored
-	TrePath = "/home/swgemu/Desktop/SWGEmu",
+	TrePath = "/home/etg/swgemu/TRE",
 
 	-- Each tre file (order is important!)
 	TreFiles = {
@@ -233,7 +233,7 @@ Core3 = {
 	InactiveAccountTitle = "Account Disabled",
 	InactiveAccountText = "The server administrators have disabled your account.",
 
-	CharacterBuilderEnabled = "true", -- Enable character builder terminals by default
+	CharacterBuilderEnabled = "false", -- Enable character builder terminals by default
 
 	PlayerLogLevel = 4, -- -1 NONE, 0 FATAL, 1 ERROR, 2 WARNING, 3 LOG, 4 INFO, 5 DEBUG
 	MaxLogLines = 1000000, -- how often to rotate log (currently only log/player.log rotates)

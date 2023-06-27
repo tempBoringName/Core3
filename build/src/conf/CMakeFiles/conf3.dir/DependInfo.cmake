@@ -1,0 +1,37 @@
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  "CXX"
+  )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/etg/git/Core3/MMOCoreORB/src/conf/ConfigManager.cpp" "/home/etg/git/Core3/build/src/conf/CMakeFiles/conf3.dir/ConfigManager.cpp.o"
+  )
+set(CMAKE_CXX_COMPILER_ID "GNU")
+
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_CXX
+  "COMPILE_CORE3_TESTS"
+  "DEBUG_AI"
+  "DEFAULT_DYNAMIC_CAST"
+  "ODB_REFERENCES"
+  )
+
+# The include file search paths:
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/usr/include/lua5.3"
+  "/usr/include/mysql"
+  "/home/etg/git/Core3/MMOCoreORB/utils/engine3/MMOEngine/src"
+  "/home/etg/git/Core3/MMOCoreORB/utils/googletest-release-1.10.0/googletest/include"
+  "/home/etg/git/Core3/MMOCoreORB/utils/googletest-release-1.10.0/googlemock/include"
+  "/home/etg/git/Core3/MMOCoreORB/src"
+  "/home/etg/git/Core3/MMOCoreORB/src/autogen"
+  "/home/etg/git/Core3/MMOCoreORB/utils"
+  "/home/etg/git/Core3/MMOCoreORB/src/conf/.."
+  )
+
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")

@@ -34,6 +34,10 @@ public:
 	float calculateExperimentationValueModifier(int experimentationResult, int pointsAttempted);
 	float calculateAssemblyValueModifier(int assemblyResult);
 	float getAssemblyPercentage(float value);
+
+	//Ethan edit: Hondo addition, junk value for player crafted goods:
+	virtual float getJunkValue(ManufactureSchematic* manufactureSchematic);
+
 };
 
 }

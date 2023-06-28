@@ -226,14 +226,15 @@ float SharedLabratory::getJunkValue(ManufactureSchematic* manufactureSchematic)
             if(ingredientslot->isComponentSlot() && ingredientslot->isFull())
             {
 				int compQuant = ingredientslot.get()->getQuantityNeeded();
-				//ComponentSlot* compSlot = cast<ComponentSlot*>(ingredientslot.get());
-				//ManagedReference<TangibleObject*> tano = compSlot->getPrototype();
+				ComponentSlot* compSlot = cast<ComponentSlot*>(ingredientslot.get());
+				ManagedReference<TangibleObject*> tano = compSlot->getPrototype();
+				int compValue = tano.junkValue;
 				//ManagedReference<CustomIngredient*> component = cast<CustomIngredient*>( tano.get());
 				//Reference<ManufactureSchematic*> compSchem = cast<ManufactureSchematic*>(tano.get());
 				//float compVal = getJunkValue(compSchem);
 				//Need to continue this here later
 				
-				junkValue += (compQuant * 50);
+				junkValue += (compQuant * compValue);
             continue;
             }
         }

@@ -10,6 +10,7 @@
 #include "server/zone/objects/tangible/component/Component.h"
 #include "server/zone/objects/manufactureschematic/ingredientslots/ComponentSlot.h"
 
+
 //#define DEBUG_RESOURCE_LAB
 
 ResourceLabratory::ResourceLabratory() {

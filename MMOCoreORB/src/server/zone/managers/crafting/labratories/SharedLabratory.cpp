@@ -7,6 +7,8 @@
 #include "server/zone/objects/tangible/misc/CustomIngredient.h"
 #include "server/zone/objects/manufactureschematic/ingredientslots/ComponentSlot.h"
 #include "server/zone/objects/manufactureschematic/ingredientslots/ResourceSlot.h"
+#include "server/zone/managers/crafting/labratories/ResourceLabratory.h" //Ethan addition
+#include "server/zone/objects/tangible/TangibleObject.idl" //Ethan addition
 
 SharedLabratory::SharedLabratory() : Logger("SharedLabratory"){
 }
@@ -206,102 +208,60 @@ int SharedLabratory::calculateAssemblySuccess(CreatureObject* player,DraftSchema
 	return CraftingManager::BARELYSUCCESSFUL;
 }
 
-//Ethan edit: Adding hondo stuff
-float SharedLabratory::getJunkValue(ManufactureSchematic* manufactureSchematic)
+//Ethan edit: I fucked around with all this:
+float SharedLabratory::getJunkValue(ManufactureSchematic* manufactureSchematic) 
 {
+    float junkValue = 1.0f;
+    int resQuant = 0;
 
-	float junkValue = 1.0f;
-	int resQuant = 0;
-	int statOQ = 0;
-	int statDR = 0;
-	int subComps = 0;
+    for (int i = 0; i < manufactureSchematic->getSlotCount(); ++i) 
+    {
 
-	for(int i = 0; i < manufactureSchematic->getSlotCount(); i++)
-	{
+        Reference<IngredientSlot* > ingredientslot = manufactureSchematic->getSlot(i);
+        Reference<DraftSlot* > draftslot = manufactureSchematic->getDraftSchematic()->getDraftSlot(i);
 
-		Reference<IngredientSlot*> ingredientslot = manufactureSchematic->getSlot(i);
-		Reference<DraftSlot*> draftslot = manufactureSchematic->getDraftSchematic()->getDraftSlot(i);
-
-		//If resource slot, continue
-		if(!ingredientslot->isResourceSlot())
-		{
-			if(ingredientslot->isComponentSlot() && ingredientslot->isFull())
-			{
-				subComps++; //Count component slot if being used
-				continue;
-			}
+        /// If resource slot, continue
+        if(!ingredientslot->isResourceSlot())
+        {
+            if(ingredientslot->isComponentSlot() && ingredientslot->isFull())
+            {
+				int compQuant = ingredientslot.get()->getQuantityNeeded();
+				//ComponentSlot* compSlot = cast<ComponentSlot*>(ingredientslot.get());
+				//ManagedReference<TangibleObject*> tano = compSlot->getPrototype();
+				//ManagedReference<CustomIngredient*> component = cast<CustomIngredient*>( tano.get());
+				//Reference<ManufactureSchematic*> compSchem = cast<ManufactureSchematic*>(tano.get());
+				//float compVal = getJunkValue(compSchem);
+				//Need to continue this here later
 				
-		}
+				junkValue += (compQuant * 50);
+            continue;
+            }
+        }
 
-		ResourceSlot* resSlot = cast<ResourceSlot*>(ingredientslot.get());
+        ResourceSlot* resSlot = cast<ResourceSlot*>(ingredientslot.get());
 
-		if(resSlot == NULL)
-		{
-			continue;
-		}
-			
-		ManagedReference<ResourceSpawn* > spawn = resSlot->getCurrentSpawn();
+        if(resSlot == nullptr)
+        {
+            continue;
+        }
 
+        ManagedReference<ResourceSpawn* > spawn = resSlot->getCurrentSpawn();
+    
+        if (spawn == nullptr) 
+        {
+            error("Spawn object is null when running getJunkValue");
+            return 0.0f;
+        }
 
-		if (spawn == nullptr)
-		{
-			error("Spawn object is null when running getJunkValue");
-			return 0.0f;
-		}
+        resQuant += draftslot->getQuantity();
+    }
+    
 
-		resQuant += draftslot->getQuantity();
-		statOQ = spawn->getValueOf(8);
-		statDR = spawn->getValueOf(2);
+    if (junkValue != 0)
+    {
+        junkValue += resQuant;
+    }
 
-		if(junkValue == 1 && statOQ != 0)
-		{
-			junkValue = (statOQ + statDR) / 2;
-		}
-		else if(junkValue > 1 && statOQ != 0)
-		{
-			junkValue = (junkValue + statOQ + statDR) / 3;
-		}
-		
-
-	}
-
-	//On low resource items with subs, make the final product worht more than selling thhe subs separately
-	if (subComps > 0 && resQuant < 100)
-	{
-		resQuant = (resQuant / 2) + 50;
-	}
-
-	//Factor sub components as best as possible and reduce resource quality impact for Architect and Shipwright
-	if (subComps == 1 && resQuant > 449)
-	{
-		resQuant = resQuant + (resQuant / 2); 
-		junkValue = junkValue + ((1000 - junkValue) /2);
-	}
-	else if (subComps > 1 && resQuant > 2500)
-	{
-		resQuant = resQuant + (resQuant * (subComps +3));
-		junkValue = junkValue + ((1000 - junkValue) /2);
-	}
-	else if (subComps > 1 && resQuant > 499)
-	{
-		resQuant = resQuant + (resQuant * subComps); //Architects, small
-		junkValue = junkValue + ((1000 - junkValue) /2);
-	}
-	else if (subComps > 0)
-	{
-		resQuant = resQuant + (resQuant / 3 * subComps); //Everything else
-	}
-
-	//Cap resource quantity and thus max price
-	if(resQuant > 29900)
-	{
-		resQuant = 29900 + System::random(100);
-	}
-
-	if(junkValue != 0)
-	{
-		junkValue = resQuant * (junkValue / 1000);
-	}
-
-	return junkValue;
+    return junkValue;
 }
+//End Ethan edits

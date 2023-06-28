@@ -1062,6 +1062,51 @@ void CraftingSessionImplementation::experiment(int rowsAttempted, const String& 
 			return;
 		}
 
+
+		 //Ethan edit:
+        float valueAdjustment = 1.0;
+
+		float results;
+	switch (experimentationResult) {
+	case CraftingManager::AMAZINGSUCCESS:
+		results = 0.08f;
+		break;
+	case CraftingManager::GREATSUCCESS:
+		results = 0.07f;
+		break;
+	case CraftingManager::GOODSUCCESS:
+		results = 0.055f;
+		break;
+	case CraftingManager::MODERATESUCCESS:
+		results = 0.015f;
+		break;
+	case CraftingManager::SUCCESS:
+		results = 0.01f;
+		break;
+	case CraftingManager::MARGINALSUCCESS:
+		results = 0.00f;
+		break;
+	case CraftingManager::OK:
+		results = -0.04f;
+		break;
+	case CraftingManager::BARELYSUCCESSFUL:
+		results = -0.07f;
+		break;
+	case CraftingManager::CRITICALFAILURE:
+		results = -0.08f;
+		break;
+	default:
+		results = 0;
+		break;
+	}
+	results *= pointsAttempted;
+	
+	valueAdjustment += results;
+        
+        prototype->setJunkValue( prototype->getJunkValue() * valueAdjustment);
+        //Ethan edit end
+
+
 		// Make sure to store the lowest roll to display (Effect the multiline rolls
 		if (lowestExpSuccess < experimentationResult)
 			lowestExpSuccess = experimentationResult;
@@ -1510,3 +1555,4 @@ bool CraftingSessionImplementation::checkPrototype() {
 
 	return true;
 }
+

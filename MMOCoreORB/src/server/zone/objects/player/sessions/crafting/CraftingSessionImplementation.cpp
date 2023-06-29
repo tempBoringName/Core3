@@ -861,7 +861,41 @@ void CraftingSessionImplementation::initialAssembly(int clientCounter) {
 	//Ethan edit: Hondo - Add Junk Dealer type to the item
     prototype->setJunkDealerNeeded(1); // JUNKGENERIC
     
+	//Ethan edit: Changes the junk dealer type based on if they're munitions or armor
+	if(prototype->isWeaponObject() || prototype->isArmorObject() )
+	{
+		prototype->setJunkDealerNeeded(4); //ARMS
+	}
 	
+	/*
+	Ethan edit: These might need to be fleshed out later, with new junk dealers added 
+	if(prototype->isInstrument())
+	{
+		prototype->setJunkDealerNeeded(1); //GENERIC
+	}
+
+	if(prototype->isPharmaceuticalObject())
+	{
+		prototype->setJunkDealerNeeded(1); //GENERIC
+	}
+
+	if(prototype->isDroidDeedObject() || prototype->isVehicleDeedObject()
+	{
+		prototype->setJunkDealerNeeded(1); //GENERIC
+	}
+
+	if(prototype->isBuildingDeed() || prototype->isInstallationDeed())
+	{
+		prototype->setJunkDealerNeeded(1); //GENERIC
+	}
+
+	if(prototype->isConsumable())
+	{
+		prototype->setJunkDealerNeeded(2); //FINERY
+	}
+	
+	*/
+
 
     // Add a value to the item, based on 1 Credit per unit, OQ, DR, and crafter skill
         // CraftingManagerImplementation::calculateFinalJunkValue calculates final price and calls...

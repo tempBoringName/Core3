@@ -191,18 +191,24 @@ int CraftingManagerImplementation::calculateFinalJunkValue(CreatureObject* playe
 	SharedLabratory* lab = labs.get(manufactureSchematic->getLabratory());
 	float junkValue = lab->getJunkValue(manufactureSchematic);
 	
+	//Ethan edit: Removing this skill point shit. I don't like this system... My system of adding value on experiments makes more sense in context.
+	//I will keep the luck bonus, though, just increase it a bit...
+	
 	//calculate luck based on experimentation skill
-	String expSkill = manufactureSchematic->getDraftSchematic()->getExperimentationSkill();
-	float playerSkill = float(player->getSkillMod(expSkill)) / 800.0f + 1.0f;
+	//String expSkill = manufactureSchematic->getDraftSchematic()->getExperimentationSkill();
+	//float playerSkill = float(player->getSkillMod(expSkill)) / 800.0f + 1.0f;
 
-	if(playerSkill > 120.0f)
-	{
-		playerSkill = 120.0f;
-	}
+	//if(playerSkill > 120.0f)
+	//{
+	//	playerSkill = 120.0f;
+	//}
 
-	float luck = (float(System::random(49)) + 1.0f) / 1000.0f + 1.0f;
+	//float luck = (float(System::random(49)) + 1.0f) / 1000.0f + 1.0f;
+	//Ethan edit: Here I'm changing it so that instead of a possible bonus of +0% to +5%, it's a range of -10% to +10%. More fun that way.
+	float luck = ((float(System::random(199)) + 1.0f) / 900.0f) + 1.0f;
 
-	float finalValue = junkValue * playerSkill * luck;
+	//float finalValue = junkValue * playerSkill * luck;
+	float finalValue = junkValue * luck;
 
 	return int(finalValue);
 }

@@ -8,7 +8,7 @@
 #include "server/zone/objects/manufactureschematic/ingredientslots/ComponentSlot.h"
 #include "server/zone/objects/manufactureschematic/ingredientslots/ResourceSlot.h"
 #include "server/zone/managers/crafting/labratories/ResourceLabratory.h" //Ethan addition
-#include "server/zone/objects/tangible/TangibleObject.idl" //Ethan addition
+#include "templates/SharedTangibleObjectTemplate.h" //Ethan addition
 
 SharedLabratory::SharedLabratory() : Logger("SharedLabratory"){
 }
@@ -226,14 +226,16 @@ float SharedLabratory::getJunkValue(ManufactureSchematic* manufactureSchematic)
             if(ingredientslot->isComponentSlot() && ingredientslot->isFull())
             {
 				int compQuant = ingredientslot.get()->getQuantityNeeded();
-				//ComponentSlot* compSlot = cast<ComponentSlot*>(ingredientslot.get());
-				//ManagedReference<TangibleObject*> tano = compSlot->getPrototype();
+				ComponentSlot* compSlot = cast<ComponentSlot*>(ingredientslot.get());
+				ManagedReference<TangibleObject*> tano = compSlot->getPrototype();
+
+				int compVal = tano.get()->getJunkValue();
 				//ManagedReference<CustomIngredient*> component = cast<CustomIngredient*>( tano.get());
 				//Reference<ManufactureSchematic*> compSchem = cast<ManufactureSchematic*>(tano.get());
 				//float compVal = getJunkValue(compSchem);
 				//Need to continue this here later
 				
-				junkValue += (compQuant * 50);
+				junkValue += (compQuant * compVal);
             continue;
             }
         }

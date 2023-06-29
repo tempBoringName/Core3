@@ -222,6 +222,14 @@ namespace server {
 		static int broadcastToGalaxy(lua_State* L);
 		static int getWorldFloor(lua_State* L);
 		static int useCovertOvert(lua_State* L);
+		//Ethan's edits: Adding Hondo bazaar bot stuff
+		static int bazaarBotListItem(lua_State* L);
+		static int bazaarBotMakeCraftedItem(lua_State* L);
+		static int bazaarBotMakeLootItem(lua_State* L);
+		static int bazaarBotMakeResources(lua_State* L);
+		static int getRandomResource(lua_State* L);
+		static int logToFile(lua_State* L);
+
 
 	private:
 		static void setupLuaPackagePath(Lua* luaEngine);

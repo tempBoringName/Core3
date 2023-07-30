@@ -59,7 +59,7 @@ byte CityManagerImplementation::cityVotingCyclesUntilLocked = 0;
 int CityManagerImplementation::decorationsPerRank = 10;
 int CityManagerImplementation::trainersPerRank = 3;
 int CityManagerImplementation::missionTerminalsPerRank = 3;
-float CityManagerImplementation::maintenanceDiscount = 1.0f;
+float CityManagerImplementation::maintenanceDiscount = 0.1f;
 
 void CityManagerImplementation::loadLuaConfig() {
 	info("Loading configuration file.", true);

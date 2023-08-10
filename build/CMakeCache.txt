@@ -769,7 +769,7 @@ ENGINE3_UBSAN_LIBRARY-ADVANCED:INTERNAL=1
 //Details about finding Boost
 FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake][cfound components: thread ][v1.71.0()]
 //Details about finding Java
-FIND_PACKAGE_MESSAGE_DETAILS_Java:INTERNAL=[/usr/bin/java][cfound components: Runtime ][v11.0.19(1.5)]
+FIND_PACKAGE_MESSAGE_DETAILS_Java:INTERNAL=[/usr/bin/java][cfound components: Runtime ][v11.0.20(1.5)]
 //Details about finding Lua
 FIND_PACKAGE_MESSAGE_DETAILS_Lua:INTERNAL=[/usr/lib/x86_64-linux-gnu/liblua5.3.so;/usr/lib/x86_64-linux-gnu/libm.so][/usr/include/lua5.3][v5.3.3(5.3)]
 //Details about finding OpenSSL

@@ -67,6 +67,15 @@ function JunkDealerConvoHandler:runScreenHandlers(pConvTemplate, pPlayer, pNpc, 
 				kitTemplate = "object/tangible/loot/collectible/kits/light_table_kit.iff"
 			elseif screenID == "give_sculpture" then
 				kitTemplate = "object/tangible/loot/collectible/kits/sculpture_kit.iff"
+			elseif screenID == "give_sd" then
+				kitTemplate = "object/tangible/food/crafted/dessert_smugglers_delight.iff"
+			elseif screenID == "give_deed" then
+				kitTemplate = "object/tangible/food/crafted/dessert_smugglers_delight.iff"
+
+				local pDatapad = SceneObject(pPlayer):getSlottedObject("datapad")
+				pItem = giveControlDevice(pDatapad, "object/intangible/pet/pet_control.iff", "hunter", -1, true)
+				SceneObject(pItem):sendTo(pPlayer)
+
 			end
 
 			if self:hasLootKit(pPlayer) then

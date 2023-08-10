@@ -92,6 +92,8 @@ kit_types = ConvoScreen:new {
 		{"@conversation/junk_dealer_generic:s_fe657cdd", "give_gong"}, -- I think I would like one of those model gong kits.
 		{"@conversation/junk_dealer_generic:s_9ede4b84", "give_table"}, -- Let me have one that makes the table.
 		{"@conversation/junk_dealer_generic:s_87c5851b", "give_sculpture"}, -- I think I will try out the one that makes the sculpture.
+		{"Smuggler's Delight", "give_sd"}, -- Ethan edit 8/8/23: Dicking around with deeds
+		{"Test", "give_deed"}, -- Ethan edit 8/8/23: Dicking around with deeds
 	}
 }
 junkDealerGenericConvoTemplate:addScreen(kit_types);
@@ -135,5 +137,23 @@ give_sculpture = ConvoScreen:new {
 	options = {}
 }
 junkDealerGenericConvoTemplate:addScreen(give_sculpture);
+
+
+give_sd = ConvoScreen:new {
+	id = "give_sd",
+	leftDialog = "@conversation/junk_dealer_generic:s_14efaaa2", -- Ok, here you go. I guess in order to make it work you need to add ten special components to the kit. When you examine a kit, it has a list of what you need in order to complete the kit. It also has a read-out of whether it currently has a component or not. Oh, and if you do happen to make anything useful with that kit, I might be interested in buying that from you.
+	stopConversation = "true",
+	options = {}
+}
+junkDealerGenericConvoTemplate:addScreen(give_sd);
+
+give_deed = ConvoScreen:new {
+	id = "give_deed",
+	leftDialog = "@conversation/junk_dealer_generic:s_14efaaa2", -- Ok, here you go. I guess in order to make it work you need to add ten special components to the kit. When you examine a kit, it has a list of what you need in order to complete the kit. It also has a read-out of whether it currently has a component or not. Oh, and if you do happen to make anything useful with that kit, I might be interested in buying that from you.
+	stopConversation = "true",
+	options = {}
+}
+junkDealerGenericConvoTemplate:addScreen(give_deed);
+
 
 addConversationTemplate("junkDealerGenericConvoTemplate", junkDealerGenericConvoTemplate);

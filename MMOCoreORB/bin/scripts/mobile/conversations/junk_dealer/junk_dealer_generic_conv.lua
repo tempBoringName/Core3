@@ -10,12 +10,56 @@ ask_for_loot = ConvoScreen:new {
 	leftDialog = "@conversation/junk_dealer_generic:s_bef51e38", -- Welcome traveler. I am a buyer of goods that most would deem as junk. If you are interested I will look through what you have to offer and set a price for anything that I wish to buy. I also have come across some other items of interest that I am looking to get rid of.
 	stopConversation = "false",
 	options = {
+		{"I'm interested in buying something...","wares_start"}, --Ethan Edit 8/10/23 NEED TO UNCOMMENT OUT, TESTING
 		--{"@conversation/junk_dealer_generic:s_54fab04f", "start_sale"}, -- I have some things that you might be interested in.
 		--{"@conversation/junk_dealer_generic:s_cd7a3f41", "no_loot"}, -- I am sorry but I don't think I have anything you would want.
 		--{"@conversation/junk_dealer_generic:s_3aa18b2d", "inventor"}, -- What sort of items do you have that you are looking to get rid of?
 	}
 }
 junkDealerGenericConvoTemplate:addScreen(ask_for_loot);
+
+------------------------------------------------------------------------------
+--Ethan Edit 8/10/23: Adding a dialogue branch for wares
+wares_start = ConvoScreen:new {
+	id = "wares_start",
+	leftDialog = "What sort of items were you interested in?", -- 
+	stopConversation = "false",
+	options = {
+		{"I'm looking for a weapon.","wares_weapons"},
+		{"I'm looking for armor.","wares_armor"},
+		{"I'm looking for a mercenary contract.","wares_hirelings"},
+	}
+}
+junkDealerGenericConvoTemplate:addScreen(wares_start);
+
+
+wares_weapons = ConvoScreen:new {
+	id = "wares_weapons",
+	leftDialog = "Here are the weapons I have available.",
+	stopConversation = "true",
+	options = { }
+}
+junkDealerGenericConvoTemplate:addScreen(wares_weapons);
+
+
+wares_armor = ConvoScreen:new {
+	id = "wares_armor",
+	leftDialog = "Here is the armor I have available.",
+	stopConversation = "true",
+	options = { }
+}
+junkDealerGenericConvoTemplate:addScreen(wares_armor);
+
+
+wares_hirelings = ConvoScreen:new {
+	id = "wares_hirelings",
+	leftDialog = "Here is the list of mercenary contracts I have available.",
+	stopConversation = "true",
+	options = { }
+}
+junkDealerGenericConvoTemplate:addScreen(wares_hirelings);
+--End Ethan edit
+------------------------------------------------------------------------------
 
 start_sale = ConvoScreen:new {
 	id = "start_sale",
@@ -92,8 +136,6 @@ kit_types = ConvoScreen:new {
 		{"@conversation/junk_dealer_generic:s_fe657cdd", "give_gong"}, -- I think I would like one of those model gong kits.
 		{"@conversation/junk_dealer_generic:s_9ede4b84", "give_table"}, -- Let me have one that makes the table.
 		{"@conversation/junk_dealer_generic:s_87c5851b", "give_sculpture"}, -- I think I will try out the one that makes the sculpture.
-		{"Smuggler's Delight", "give_sd"}, -- Ethan edit 8/8/23: Dicking around with deeds
-		{"Test", "give_deed"}, -- Ethan edit 8/8/23: Dicking around with deeds
 	}
 }
 junkDealerGenericConvoTemplate:addScreen(kit_types);
@@ -137,23 +179,6 @@ give_sculpture = ConvoScreen:new {
 	options = {}
 }
 junkDealerGenericConvoTemplate:addScreen(give_sculpture);
-
-
-give_sd = ConvoScreen:new {
-	id = "give_sd",
-	leftDialog = "@conversation/junk_dealer_generic:s_14efaaa2", -- Ok, here you go. I guess in order to make it work you need to add ten special components to the kit. When you examine a kit, it has a list of what you need in order to complete the kit. It also has a read-out of whether it currently has a component or not. Oh, and if you do happen to make anything useful with that kit, I might be interested in buying that from you.
-	stopConversation = "true",
-	options = {}
-}
-junkDealerGenericConvoTemplate:addScreen(give_sd);
-
-give_deed = ConvoScreen:new {
-	id = "give_deed",
-	leftDialog = "@conversation/junk_dealer_generic:s_14efaaa2", -- Ok, here you go. I guess in order to make it work you need to add ten special components to the kit. When you examine a kit, it has a list of what you need in order to complete the kit. It also has a read-out of whether it currently has a component or not. Oh, and if you do happen to make anything useful with that kit, I might be interested in buying that from you.
-	stopConversation = "true",
-	options = {}
-}
-junkDealerGenericConvoTemplate:addScreen(give_deed);
 
 
 addConversationTemplate("junkDealerGenericConvoTemplate", junkDealerGenericConvoTemplate);

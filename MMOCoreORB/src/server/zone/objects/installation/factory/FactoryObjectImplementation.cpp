@@ -25,6 +25,8 @@
 #include "templates/installation/FactoryObjectTemplate.h"
 #include "server/zone/objects/transaction/TransactionLog.h"
 
+#include "server/zone/managers/player/PlayerManager.h"
+
 void FactoryObjectImplementation::loadTemplateData(SharedObjectTemplate* templateData) {
 	InstallationObjectImplementation::loadTemplateData(templateData);
 
@@ -593,6 +595,20 @@ void FactoryObjectImplementation::createNewObject() {
 			dfcty3->close();
 
 			broadcastToOperators(dfcty3);
+			//Ethan edit 10-23-23: I think this is where I would add the crafter xp
+			/*
+			ManagedReference<CreatureObject*> crafter = schematic->getCrafter();
+			String xpType = schematic->getDraftSchematic()->getXpType();
+			int xp = schematic->getDraftSchematic()->getXpAmount();
+
+			xp = round(xp * 0.5f);
+
+			Reference<PlayerManager*> playerManager = crafter->getZoneServer()->getPlayerManager();
+
+			playerManager->awardExperience(crafter, xpType, xp, true);
+			*/
+
+			//End Ethan edit 10-23-23
 		}
 
 		if (crate == nullptr) {

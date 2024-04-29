@@ -25,21 +25,21 @@ wares_start = ConvoScreen:new {
 	leftDialog = "What sort of items were you interested in?", -- 
 	stopConversation = "false",
 	options = {
-		{"I'm looking for a weapon.","wares_weapons"},
+		{"I'm looking for a weapon.","wares_weapon"},
 		{"I'm looking for armor.","wares_armor"},
-		{"I'm looking for a mercenary contract.","wares_hirelings"},
+		{"I'm looking for a mercenary contract.","wares_hireling"},
 	}
 }
 junkDealerGenericConvoTemplate:addScreen(wares_start);
 
 
-wares_weapons = ConvoScreen:new {
-	id = "wares_weapons",
+wares_weapon = ConvoScreen:new {
+	id = "wares_weapon",
 	leftDialog = "Here are the weapons I have available.",
 	stopConversation = "true",
 	options = { }
 }
-junkDealerGenericConvoTemplate:addScreen(wares_weapons);
+junkDealerGenericConvoTemplate:addScreen(wares_weapon);
 
 
 wares_armor = ConvoScreen:new {
@@ -51,13 +51,13 @@ wares_armor = ConvoScreen:new {
 junkDealerGenericConvoTemplate:addScreen(wares_armor);
 
 
-wares_hirelings = ConvoScreen:new {
-	id = "wares_hirelings",
+wares_hireling = ConvoScreen:new {
+	id = "wares_hireling",
 	leftDialog = "Here is the list of mercenary contracts I have available.",
 	stopConversation = "true",
 	options = { }
 }
-junkDealerGenericConvoTemplate:addScreen(wares_hirelings);
+junkDealerGenericConvoTemplate:addScreen(wares_hireling);
 --End Ethan edit
 ------------------------------------------------------------------------------
 

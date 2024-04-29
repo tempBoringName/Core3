@@ -3342,7 +3342,7 @@ bool CreatureObjectImplementation::isAttackableBy(CreatureObject* creature, bool
 				ManagedReference<CreatureObject*> owner = creature->getLinkedCreature().get();
 
 				if (owner == nullptr)
-					return false;
+					return true; //Ethan Edit 8-14-23 changed to true
 
 				return isAttackableBy(owner);
 			}
